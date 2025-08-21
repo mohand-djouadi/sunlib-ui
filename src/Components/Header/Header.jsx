@@ -24,7 +24,7 @@ const Header = () => {
             </button>     
         </div>
       </header>
-      <div className="flex flex-row justify-evenly items-center mt-3">
+      <div className="flex flex-row justify-evenly items-center mt-3 lg:mt-5">
         <NavLink to="/" className={({ isActive }) => isActive ? "dark:text-white text-primary" : "dark:text-white"}>Home</NavLink>
         <NavLink to="/books" className={({ isActive }) => isActive ? "dark:text-white text-primary" : "dark:text-white"}>Books</NavLink>
         <NavLink to="/about" className={({ isActive }) => isActive ? "dark:text-white text-primary" : "dark:text-white"}>About</NavLink>
