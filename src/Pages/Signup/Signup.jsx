@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 const Signup = () => {
   return (
     <main className="flex justify-center items-center h-[70vh] lg:flex lg:w-full lg:h-[100vh]">
+      <span className="text-secondary absolute left-3 top-2"><Link to="/">&lt;back</Link></span>
       <div className="h-[90%] flex flex-col justify-center around items-center w-full lg:w-[55%] lg:h-[100vh]">
         <h1 className="text-primary  text-5xl">Create Account</h1>
         <form className="my-5 flex h-[30%] w-full flex-col justify-between items-center lg:h-[45%]">
