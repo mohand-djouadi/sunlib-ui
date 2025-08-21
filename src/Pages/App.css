@@ -10,6 +10,13 @@
   --font-primary: "Jua", sans-serif;
   --font-secondary: "Klee One", cursive;
   --font-normal: "Telex", sans-serif;
+  --font-title: "Jura", sans-serif;
+}
+
+@layer base {
+  h1 {
+    @apply font-title text-primary text-5xl
+  }
 }
 
 @layer components {
