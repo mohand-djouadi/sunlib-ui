@@ -40,13 +40,13 @@ const Login = () => {
           </label>
           <Link className="mb-4 text-blue-700 underline">forgot your password</Link>
           <button className='btn-primary px-13' type="submit">Login</button>
-          <p className="mt-5 md:hidden dark:text-white">You don't have account <Link className="mb-4 text-blue-700 underline">Sign up</Link></p>
+          <p className="mt-5 md:hidden dark:text-white">You don't have account <Link to="/signup" className="mb-4 text-blue-700 underline">Sign up</Link></p>
         </form>
       </div>
       <div className="max-sm:hidden bg-primary h-[100vh] w-[45%] flex flex-col justify-around items-center">
         <img className="w-[60%] h-[40%]" src={signlog} alt="signlog" />
         <h2 className="text-3xl font-title w-3xs">Discover, Borrow, Explore – Your Library in a Click!</h2>
-        <p>You don't have un account <Link className="mb-4 text-blue-700 underline">Sign up</Link></p>
+        <p>You don't have un account <Link to="/signup" className="mb-4 text-blue-700 underline">Sign up</Link></p>
       </div>
     </main>
   )
