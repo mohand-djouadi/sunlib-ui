@@ -24,4 +24,7 @@
   .btn-primary {
     @apply rounded-full bg-secondary px-5 py-2 text-white;
   }
+  .btn-secondary {
+    @apply rounded-full bg-none border-2 border-secondary px-5 py-2 text-black;
+  }
 }

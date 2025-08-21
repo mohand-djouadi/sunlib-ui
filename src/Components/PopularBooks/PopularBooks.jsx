@@ -1,8 +1,42 @@
-import React from 'react'
+import book from "../../assets/book.png"
+import book2 from "../../assets/book2.png"
+import book3 from "../../assets/book3.png"
+import BookCard from "../BookCard/Bookcard"
+import TitleSeparator from "../TitleSeprator/TitleSeparator"
+
+const books = [
+    {
+        title: 'The book of art',
+        image: book,
+        author: 'Regina Phalange',
+        rate: 3
+    },
+    {
+        title: 'Harry Potter and the cursed child',
+        image: book2,
+        author: 'J.K Riowling',
+        rate: 5
+    },
+    {
+        title: 'Don’t look back',
+        image: book3,
+        author: 'Isaac Nelson',
+        rate: 4
+    }
+]
 
 const PopularBooks = () => {
   return (
-    <div>PopularBooks</div>
+    <>
+        <TitleSeparator title="Popular books" />
+        <div className="flex flex-col justify-center items-center mt-6 lg:flex lg:flex-row lg:justify-evenly lg:items-center">
+            {
+                books.map((book) => (
+                    <BookCard book={book} />
+                ))
+            }
+        </div>
+    </>
   )
 }
 
