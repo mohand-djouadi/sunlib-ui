@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './App.css'
 import Login from './Login/Login'
 import Home from './Home/Home'
@@ -8,20 +9,24 @@ import HeaderLayout from '../Layouts/HeaderLayout/HeaderLayout'
 import BannerLayout from '../Layouts/BannerLayout/BannerLayout'
 import Books from './Books/Books'
 
+const queryClient = new QueryClient()
+
 function App() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<HeaderLayout />}>
-                    <Route element={<BannerLayout />}>
-                        <Route index element={<Home />} />
-                        <Route path="about" element={<About />} />
+            <QueryClientProvider client={queryClient}>
+                <Routes>
+                    <Route path="/" element={<HeaderLayout />}>
+                        <Route element={<BannerLayout />}>
+                            <Route index element={<Home />} />
+                            <Route path="about" element={<About />} />
+                        </Route>
+                        <Route path="books" element={<Books />} />
                     </Route>
-                    <Route path="books" element={<Books />} />
-                </Route>
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-            </Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                </Routes>
+            </QueryClientProvider>
         </BrowserRouter>
     )
 }

@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 const BannerLayout = () => {
     return (
-        <div>
+        <div className="h-[100%]">
             <Banner />
             <Outlet />
         </div>

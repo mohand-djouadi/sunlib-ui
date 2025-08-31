@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 const HeaderLayout = () => {
     return (
-        <div>
+        <div className="h-[100%]">
             <Header />
             <Outlet />
         </div>

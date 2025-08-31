@@ -1,7 +1,13 @@
-import React from 'react'
+import BookFilters from '../../Components/BookFilters/BookFilters'
+import BooksList from '../../Components/BooksList/BooksList'
 
 const Books = () => {
-    return <div>Books</div>
+    return (
+        <div className="flex flex-row h-[73%]">
+            <BookFilters />
+            <BooksList />
+        </div>
+    )
 }
 
 export default Books

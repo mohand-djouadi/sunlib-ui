@@ -1,4 +1,4 @@
-const BookCard = ({ book }) => {
+const PopularBookCard = ({ book }) => {
     const stars = Array.from({ length: 5 }, (_, i) => (
         <span
             key={i}
@@ -11,18 +11,13 @@ const BookCard = ({ book }) => {
     ))
 
     return (
-        <div className="px-3 py-2 flex flex-col max-h-[100%] justify-evenly items-center border-2 border-primary w-[30%] rounded-2xl">
-            <h4 className="text-1xl h-10 text-center dark:text-white">
+        <div className="px-1 py-6 my-2 flex flex-col justify-around items-center border-2 border-primary w-[80%] rounded-2xl lg:w-[25%]">
+            <h4 className="text-2xl my-3 h-20 text-center dark:text-white">
                 {book.title}
             </h4>
-            <img
-                className="w-[70%] h-30"
-                src={book.imageUrl}
-                alt={book.title}
-            />
-            <h4 className="text-1xl my-1 dark:text-white">{book.author}</h4>
-            <div className="mb-1">{stars}</div>
-            <div className="text-primary text-2xl my-2">{book.price} $</div>
+            <img className="w-[100%] h-65" src={book.image} alt={book.title} />
+            <h4 className="text-2xl my-3 dark:text-white">{book.author}</h4>
+            <div className="mb-3">{stars}</div>
             <div className="flex flex-row justify-between items-center">
                 <button className="btn-primary w-25 mx-2">Buy</button>
                 <button className="btn-secondary w-25 mx-2 dark:text-white">
@@ -33,4 +28,4 @@ const BookCard = ({ book }) => {
     )
 }
 
-export default BookCard
+export default PopularBookCard

@@ -1,7 +1,6 @@
 import book from '../../assets/book.png'
 import book2 from '../../assets/book2.png'
 import book3 from '../../assets/book3.png'
-import BookCard from '../BookCard/Bookcard'
 import TitleSeparator from '../TitleSeprator/TitleSeparator'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -9,6 +8,7 @@ import {
     faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
+import PopularBookCard from '../PopularBookCard/PopularBookCard'
 
 const books = [
     {
@@ -114,10 +114,10 @@ const PopularBooks = () => {
                 </div>
                 <div className="flex flex-col justify-center items-center mt-6 lg:flex lg:flex-row lg:justify-evenly lg:items-center lg:gap-4">
                     {isMobileWidth ? (
-                        <BookCard book={mobileCards} />
+                        <PopularBookCard book={mobileCards} />
                     ) : (
                         cards.map((card, index) => (
-                            <BookCard key={index} book={card} />
+                            <PopularBookCard key={index} book={card} />
                         ))
                     )}
                 </div>
