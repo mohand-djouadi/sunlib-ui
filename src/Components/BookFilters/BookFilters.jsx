@@ -3,7 +3,7 @@ import FiltersCheckbox from '../FiltersCheckbox/FiltersCheckbox'
 
 const BookFilters = () => {
     return (
-        <div className="bg-primary p-4 w-[27%] border-t-3 border-r-3 border-b-3 border-t-secondary border-r-secondary border-b-secondary rounded-tr-2xl rounded-br-2xl h-[100%]">
+        <div className="bg-primary p-4 w-[27%] border-t-3 border-r-3 border-b-3 border-t-secondary border-r-secondary border-b-secondary rounded-tr-2xl rounded-br-2xl h-[100%] max-sm:w-[100%] max-sm:rounded-none">
             <h2 className="font-primary text-secondary text-3xl text-center">
                 Filters
             </h2>
@@ -12,10 +12,12 @@ const BookFilters = () => {
                     <h4 className="font-primary text-secondary text-1xl">
                         Categories
                     </h4>
-                    <FiltersCheckbox text="Fantasia" />
-                    <FiltersCheckbox text="Fiction" />
-                    <FiltersCheckbox text="Comedy" />
-                    <FiltersCheckbox text="Horror" />
+                    <div className="max-sm:flex max-sm:flex-row max-sm:flex-wrap max-sm:gap-1 max-sm:items-center">
+                        <FiltersCheckbox text="Fantasia" />
+                        <FiltersCheckbox text="Fiction" />
+                        <FiltersCheckbox text="Comedy" />
+                        <FiltersCheckbox text="Horror" />
+                    </div>
                 </div>
                 <div>
                     <div className="flex flex-col-reverse">
