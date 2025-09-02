@@ -3,7 +3,7 @@ import axios from 'axios'
 import BookCard from '../BookCard/Bookcard'
 import BookSorter from '../BookSorter/BookSorter'
 
-// TODO: manage filters states, and add mobile style
+// TODO: manage filters states
 const apiUrl = import.meta.env.VITE_API_URL
 
 const BooksList = () => {

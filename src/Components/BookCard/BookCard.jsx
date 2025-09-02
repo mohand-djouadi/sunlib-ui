@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const BookCard = ({ book }) => {
     const stars = Array.from({ length: 5 }, (_, i) => (
         <span
@@ -11,7 +13,10 @@ const BookCard = ({ book }) => {
     ))
 
     return (
-        <div className="px-3 py-2 flex flex-col max-h-[100%] justify-evenly items-center border-2 border-primary w-[30%] rounded-2xl max-sm:w-[70%]">
+        <Link
+            to={`/books/${book.id}`}
+            className="px-3 py-2 flex flex-col max-h-[100%] justify-evenly items-center border-2 border-primary w-[30%] rounded-2xl max-sm:w-[70%]"
+        >
             <h4 className="text-1xl h-10 text-center dark:text-white">
                 {book.title}
             </h4>
@@ -29,7 +34,7 @@ const BookCard = ({ book }) => {
                     Borrow
                 </button>
             </div>
-        </div>
+        </Link>
     )
 }
 

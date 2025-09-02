@@ -8,6 +8,7 @@ import About from './About/About'
 import HeaderLayout from '../Layouts/HeaderLayout/HeaderLayout'
 import BannerLayout from '../Layouts/BannerLayout/BannerLayout'
 import Books from './Books/Books'
+import BookDetail from './BookDetail/BookDetail'
 
 const queryClient = new QueryClient()
 
@@ -22,6 +23,7 @@ function App() {
                             <Route path="about" element={<About />} />
                         </Route>
                         <Route path="books" element={<Books />} />
+                        <Route path="books/:bookId" element={<BookDetail />} />
                     </Route>
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
