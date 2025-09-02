@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import BookCard from '../BookCard/Bookcard'
+import BookCard from '../BookCard/BookCard'
 import BookSorter from '../BookSorter/BookSorter'
 
 // TODO: manage filters states
