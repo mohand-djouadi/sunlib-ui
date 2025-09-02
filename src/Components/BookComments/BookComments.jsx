@@ -60,7 +60,7 @@ const BookComments = () => {
                                 alt={comment.user.username}
                             />
                             <div className="p-5 bg-banner-bg rounded-4xl w-[80%]">
-                                <h4 className="text-2xl text-secondary font-normal">
+                                <h4 className="text-2xl text-primary font-normal">
                                     {comment.user.username}
                                 </h4>
                                 <p className="dark:text-white">
@@ -95,7 +95,7 @@ const BookComments = () => {
                         placeholder="comment"
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
-                        className="w-[100%] h-12 border-2 border-primary rounded-full p-4"
+                        className="w-[100%] h-12 border-2 border-primary rounded-full p-4 dark:text-white"
                     />
                     <FontAwesomeIcon
                         icon={faFaceSmile}
