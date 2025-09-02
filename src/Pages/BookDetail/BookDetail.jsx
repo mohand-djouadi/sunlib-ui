@@ -4,6 +4,7 @@ import AuthorDetail from '../../Components/AuthorDetail/AuthorDetail'
 import book2 from '../../assets/book2.png'
 import book3 from '../../assets/book3.png'
 import RelatedbookItem from '../../Components/RelatedBookItem/RelatedbookItem'
+import BookComments from '../../Components/BookComments/BookComments'
 
 const book = {
     titre: 'Harry Potter and the cursed child',
@@ -141,7 +142,7 @@ const BookDetail = () => {
             <div className="pt-15 flex flex-row items-center">
                 <AuthorDetail />
                 <div className="w-[60%]">
-                    <h3 className="text-center mb-35 font-primary text-2xl text-primary">
+                    <h3 className="text-center mb-15 font-primary text-2xl text-primary">
                         Related books
                     </h3>
                     <div className="flex flex-row items-center">
@@ -151,7 +152,9 @@ const BookDetail = () => {
                     </div>
                 </div>
             </div>
-            <div></div>
+            <div>
+                <BookComments />
+            </div>
         </div>
     )
 }

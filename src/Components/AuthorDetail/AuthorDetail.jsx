@@ -31,7 +31,7 @@ const AuthorDetail = () => {
                     </h3>
                 </div>
             </div>
-            <p className="">{author.description}</p>
+            <p className="dark:text-white">{author.description}</p>
             <div className="flex flex-row items-center justify-around w-[100%]">
                 <span className="text-primary">books : {author.books}</span>
                 <span className="text-primary">sales : {author.sales}</span>
