@@ -1,24 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { useQuery } from '@tanstack/react-query'
 import AuthorDetail from '../../Components/AuthorDetail/AuthorDetail'
 import book2 from '../../assets/book2.png'
 import book3 from '../../assets/book3.png'
 import RelatedbookItem from '../../Components/RelatedBookItem/RelatedbookItem'
 import BookComments from '../../Components/BookComments/BookComments'
-
-const book = {
-    titre: 'Harry Potter and the cursed child',
-    imageUrl:
-        'https://res.cloudinary.com/droeghcft/image/upload/v1756500211/81jVPDq3HKL._UF1000_1000_QL80__ao7pal.jpg',
-    description:
-        "Basé sur une nouvelle histoire originale de J.K. Rowling, Harry Potter and the Cursed Child est une pièce de théâtre co-écrite par John Tiffany et Jack Thorne. Ce livre marque le retour tant attendu dans l'univers magique de Harry Potter, mais cette fois, l’histoire suit une nouvelle génération.Dix-neuf ans après la bataille de Poudlard, Harry Potter, désormais employé du Ministère de la Magie, tente d’équilibrer sa vie de sorcier célèbre et son rôle de père. Son fils, Albus Severus Potter, peine à trouver sa place sous l'ombre imposante de son père. Entre amitié improbable et secrets du passé, père et fils découvrent que parfois, l'obscurité vient des endroits les plus inattendus...",
-    rate: 4,
-    sellPrice: 3600,
-    borrowPrice: 1200,
-    likes: 10000,
-    author: 'J.K. Rowling',
-    categories: ['fantasy', 'Theatre'],
-}
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 const relateds = [
     {
@@ -35,9 +24,31 @@ const relateds = [
     },
 ]
 
+const apiUrl = import.meta.env.VITE_API_URL
+
 const BookDetail = () => {
+    const param = useParams()
+    const fetchBookDetail = async () => {
+        const { data } = await axios.get(
+            `${apiUrl}/livres/detail?id=${param.bookId}`
+        )
+        return data
+    }
+    const { data: book, isLoading } = useQuery({
+        queryKey: [`${param.bookId} detail`],
+        queryFn: fetchBookDetail,
+    })
+
     const getCategories = (categories) => {
         return categories.join(', ')
+    }
+
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center w-[73%] max-sm:w-[100%] h-[100%]">
+                <div class="w-10 h-10 border-4 border-t-secondary border-primary rounded-full animate-spin"></div>
+            </div>
+        )
     }
 
     return (
@@ -46,7 +57,7 @@ const BookDetail = () => {
                 <img
                     className="w-[35%] h-[65vh]"
                     src={book.imageUrl}
-                    alt={book.titre}
+                    alt={book.title}
                 />
                 {/* <div className="w-[60%] h-[65vh]">
                     <h2 className="text-primary font-primary text-3xl">
@@ -82,7 +93,7 @@ const BookDetail = () => {
                 <div class="grid grid-cols-3 gap-4 w-[55%] h-[65vh">
                     <div class="col-span-3 flex items-center justify-center">
                         <h2 className="text-primary font-primary text-3xl">
-                            {book.titre}
+                            {book.title}
                         </h2>
                     </div>
                     <div class="flex items-center justify-center">

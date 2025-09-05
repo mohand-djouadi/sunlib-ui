@@ -1,5 +1,4 @@
 import TitleSeparator from '../TitleSeprator/TitleSeparator'
-import client from '../../assets/client.png'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -8,43 +7,40 @@ import {
     faFaceSmile,
 } from '@fortawesome/free-solid-svg-icons'
 import Picker from 'emoji-picker-react'
-
-const comments = [
-    {
-        content:
-            "Harry Potter is a magical masterpiece that transports readers into a world of wonder, adventure, and friendship. With its captivating storytelling, rich characters, and immersive world-building, J.K. Rowling's series continues to enchant readers of all ages. A timeless classic that sparks imagination and inspires bravery!",
-        user: {
-            username: 'sofiane.guizef',
-            image: client,
-        },
-    },
-    {
-        content:
-            "Harry Potter is a magical masterpiece that transports readers into a world of wonder, adventure, and friendship. With its captivating storytelling, rich characters, and immersive world-building, J.K. Rowling's series continues to enchant readers of all ages. A timeless classic that sparks imagination and inspires bravery!",
-        user: {
-            username: 'sofiane.guizef',
-            image: client,
-        },
-    },
-    {
-        content:
-            "Harry Potter is a magical masterpiece that transports readers into a world of wonder, adventure, and friendship. With its captivating storytelling, rich characters, and immersive world-building, J.K. Rowling's series continues to enchant readers of all ages. A timeless classic that sparks imagination and inspires bravery!",
-        user: {
-            username: 'sofiane.guizef',
-            image: client,
-        },
-    },
-]
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
 
 // TODO: styling emoji picker
+
+const apiUrl = import.meta.env.VITE_API_URL
 
 const BookComments = () => {
     const [showPicker, setShowPicker] = useState(false)
     const [comment, setComment] = useState('')
+    const param = useParams()
 
     const onEmojiClick = (event) => {
         setComment((prevInput) => prevInput + event.emoji)
         setShowPicker(false)
+    }
+
+    const fetchBookComments = async () => {
+        const { data } = await axios.get(`${apiUrl}/comments/${param.bookId}`)
+        return data
+    }
+
+    const { data: comments, isLoading } = useQuery({
+        queryKey: [`${param.bookId} comments`],
+        queryFn: fetchBookComments,
+    })
+
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center w-[73%] max-sm:w-[100%] h-[100%]">
+                <div class="w-10 h-10 border-4 border-t-secondary border-primary rounded-full animate-spin"></div>
+            </div>
+        )
     }
 
     return (
@@ -56,7 +52,7 @@ const BookComments = () => {
                         <div className="flex flex-row justify-center items-center">
                             <img
                                 className="w-[6%]"
-                                src={comment.user.image}
+                                src={comment.user.imageUrl}
                                 alt={comment.user.username}
                             />
                             <div className="p-5 bg-banner-bg rounded-4xl w-[80%]">

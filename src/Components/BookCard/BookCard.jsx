@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 
 const BookCard = ({ book }) => {
+    const roundPrices = (price) => {
+        return price.toFixed(2)
+    }
     const stars = Array.from({ length: 5 }, (_, i) => (
         <span
             key={i}
@@ -27,7 +30,14 @@ const BookCard = ({ book }) => {
             />
             <h4 className="text-1xl my-1 dark:text-white">{book.author}</h4>
             <div className="mb-1">{stars}</div>
-            <div className="text-primary text-2xl my-2">{book.price} $</div>
+            <div className="w-[80%] flex flex-row justify-between items-center">
+                <div className="text-primary text-2xl my-2">
+                    {roundPrices(book.sellPrice)} $
+                </div>
+                <div className="text-black text-2xl my-2 dark:text-white">
+                    {roundPrices(book.borrowPrice)} $
+                </div>
+            </div>
             <div className="flex flex-row justify-between items-center">
                 <button className="btn-primary w-25 mx-2">Buy</button>
                 <button className="btn-secondary w-25 mx-2 dark:text-white">
